@@ -1,0 +1,20 @@
+sampleVar: COMMON sampleVar
+
+## color is the color to use for the webpage background. Valid values are the Solarized colors: https://ethanschoonover.com/solarized/
+color: magenta
+
+replicaCount: 1
+
+image:
+  pullPolicy: IfNotPresent
+  tag: "1.1.5"
+
+## username and password will need to be replaced with a valid GitHub user and token with package:read permissions
+imageCredentials:
+  registry: ghcr.io
+
+podLabels: {}
+
+service:
+  type: ClusterIP
+  port: 80
