@@ -1,0 +1,10 @@
+ingress:
+  enabled: true
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+  hosts:
+    - host: 'dummy.localhost'
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
