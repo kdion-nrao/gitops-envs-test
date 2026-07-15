@@ -1,4 +1,4 @@
-imageCredentials:
+imagePullSecrets:
   - name: ghcr-regcred
 
 ingress:
