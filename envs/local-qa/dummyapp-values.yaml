@@ -1,5 +1,9 @@
 color: green
 
+image:
+  pullPolicy: Always
+  tag: edge
+
 ingress:
   hosts:
     - host: 'dummy-qa.localhost'

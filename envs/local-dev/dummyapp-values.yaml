@@ -1,5 +1,9 @@
 color: blue
 
+image:
+  pullPolicy: Always
+  tag: edge
+
 ingress:
   hosts:
     - host: 'dummy-dev.localhost'

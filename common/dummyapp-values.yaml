@@ -9,9 +9,9 @@ image:
   pullPolicy: IfNotPresent
   tag: "1.1.5"
 
-## username and password will need to be replaced with a valid GitHub user and token with package:read permissions
 imageCredentials:
   registry: ghcr.io
+  username: kdion-nrao
 
 podLabels: {}
 
