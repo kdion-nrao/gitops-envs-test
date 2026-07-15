@@ -1,0 +1,8 @@
+color: green
+
+ingress:
+  hosts:
+    - host: 'dummy-qa.localhost'
+      paths:
+        - path: /
+          pathType: Prefix

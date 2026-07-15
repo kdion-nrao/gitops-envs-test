@@ -1,0 +1,8 @@
+color: blue
+
+ingress:
+  hosts:
+    - host: 'dummy-dev.localhost'
+      paths:
+        - path: /
+          pathType: Prefix
