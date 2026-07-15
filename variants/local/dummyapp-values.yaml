@@ -1,3 +1,6 @@
+imageCredentials:
+  - name: ghcr-regcred
+
 ingress:
   enabled: true
   annotations:
