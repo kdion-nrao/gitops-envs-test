@@ -1,3 +1,5 @@
+color: blue
+
 ingress:
   enabled: true
   annotations:
