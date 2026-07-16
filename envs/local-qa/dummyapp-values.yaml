@@ -6,6 +6,7 @@ image:
 
 ingress:
   hosts:
-    - paths:
-        - path: /qa
+    - host: 'dummy-qa.localhost'
+      paths:
+        - path: /
           pathType: Prefix
