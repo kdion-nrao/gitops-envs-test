@@ -6,7 +6,7 @@ image:
 
 ingress:
   hosts:
-    - host: 'dummy-dev.localhost'
+    - host: '*'
       paths:
-        - path: /
+        - path: /dev
           pathType: Prefix
