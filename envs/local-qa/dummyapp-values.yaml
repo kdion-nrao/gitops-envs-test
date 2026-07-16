@@ -6,7 +6,6 @@ image:
 
 ingress:
   hosts:
-    - host: '*'
-      paths:
+    - paths:
         - path: /qa
           pathType: Prefix
