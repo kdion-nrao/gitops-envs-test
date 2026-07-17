@@ -1,12 +1,14 @@
 color: blue
 
+contextPath: '/dev'
+
 image:
   pullPolicy: Always
   tag: edge
 
 ingress:
   hosts:
-    - host: 'dummy-dev.localhost'
+    - host: 'dummy.localhost'
       paths:
-        - path: /
+        - path: /dev
           pathType: Prefix
