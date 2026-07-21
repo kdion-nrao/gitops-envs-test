@@ -61,3 +61,7 @@ spec:
 ```
 
 In this case, settings common to locally-run deployments are grouped in a `local` variant.
+
+## Secrets
+
+See [secrets.md](secrets.md)

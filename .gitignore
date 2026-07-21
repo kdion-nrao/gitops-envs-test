@@ -1,0 +1,4 @@
+
+## ignore any unencrypted secrets
+**/*secrets.yaml
+!**/*secrets.enc.yaml

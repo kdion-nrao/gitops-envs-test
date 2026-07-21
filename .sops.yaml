@@ -1,0 +1,5 @@
+creation_rules:
+  - path_regex: .*secrets(\.enc)?\.yaml$
+    age:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFpycNP1F4baBJ9N7Xn+IlgVxiGo0KkRwU7hGcXEQ8DE
+      - age1m2la56dk3rvfezkfpwkpes6zq69jcl97tx05d0xq3z64pkkmlf6qa54hu4

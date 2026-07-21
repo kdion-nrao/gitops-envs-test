@@ -11,7 +11,6 @@ image:
 
 imageCredentials:
   registry: ghcr.io
-  username: kdion-nrao
 
 podLabels: {}
 

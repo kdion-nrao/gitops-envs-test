@@ -1,0 +1,12 @@
+##
+## Configures which keys will go into the .sops.yaml config file
+##
+
+## age settings
+age:
+  ## List of GitHub users from which to to pull ssh keys
+  github-users:
+    - kdion-nrao
+  ## explicit/static public keys
+  keys:
+    - age1m2la56dk3rvfezkfpwkpes6zq69jcl97tx05d0xq3z64pkkmlf6qa54hu4
