@@ -1,12 +1,14 @@
 color: green
 
 image:
-  pullPolicy: Always
-  tag: edge
+  tag: 1.1.5
 
 ingress:
+  tls:
+    - hosts:
+        - dummy-qa.localhost
   hosts:
-    - host: 'dummy-qa.localhost'
+    - host: dummy-qa.localhost
       paths:
         - path: /
           pathType: Prefix
