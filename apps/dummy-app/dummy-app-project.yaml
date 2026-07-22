@@ -7,7 +7,9 @@ spec:
   description: "Demonstration of declarative deployment configuration using argocd and dummy web app"
 
   sourceRepos:
+    - 'https://github.com/nrao/dummy-app/'
     - 'https://github.com/nrao/dummy-app.git'
+    - 'https://github.com/kdion-nrao/gitops-envs-test/'
     - 'https://github.com/kdion-nrao/gitops-envs-test.git'
 
   destinations:
