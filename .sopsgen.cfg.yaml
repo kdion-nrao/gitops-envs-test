@@ -8,5 +8,6 @@ age:
   github-users:
     - kdion-nrao
   ## explicit/static public keys
+  ## e.g. the key installed in Argo
   keys:
     - age1m2la56dk3rvfezkfpwkpes6zq69jcl97tx05d0xq3z64pkkmlf6qa54hu4
