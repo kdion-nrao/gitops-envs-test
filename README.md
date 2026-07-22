@@ -45,7 +45,7 @@ spec:
           parameters:
             - name: imageCredentials.password
               value: <token>
-      - repoURL: git@github.com:kdion-nrao/gitops-envs-test.git
+      - repoURL: https://github.com/kdion-nrao/gitops-envs-test.git
         targetRevision: HEAD
         ref: values
       destination:

@@ -1,4 +1,4 @@
 
 ## ignore any unencrypted secrets
-**/*secrets.yaml
-!**/*secrets.enc.yaml
+**/*secret*.yaml
+!**/*secret*.enc.yaml

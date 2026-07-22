@@ -86,7 +86,7 @@ done
 ## Re-encrypt secret files
 echo "=== Updating keys "
 shopt -s globstar nullglob
-for file in ./**/*secrets.enc.yaml
+for file in ./**/*secret*.enc.yaml
 do
     sops updatekeys -y "$file"
 done

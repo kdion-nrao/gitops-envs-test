@@ -13,12 +13,12 @@ One of the interesting things about `age` encryption keys is that the tool suppo
 
 In this vein, this prototype generates the list of age 'recipients` (public keys which can decrypt a given file) using SSH public keys gathered from GitHub via a list of usernames:
 
-- `.sopsgen.cfg.yaml`: contains a list of GitHub usernames to allow, one per line
+- `.sopsgen.cfg.yaml`: contains a list of GitHub usernames to allow, as well as any additional age keys to allow
 - `sops_gen_recipients.sh`: Reads the `.sopsgen.cfg.yaml` file, and:
-   - for each `age.github-users`:
-      - Pulls public SSH keys from https://github.com/<username>.keys
+   - For each entry in `age.github-users`:
+      - Pulls public SSH keys from `https://github.com/<username>.keys`
       - For each `ssh-ed25519` or `ssh-rsa` key, adds it to the recipient key list
-   - for each `age.keys`:
+   - For each entry in `age.keys`:
       - adds to the recipient key list
    - Adds all recipient keys to the `.sops.yaml` configuration file
    - Re-encrypts all secrets files with the latest keys
