@@ -21,7 +21,7 @@ spec:
         targetRevision: 74cfc3855ead2760f0b11d49feacf8d88bcb8ae0
         helm:
           values: |
-            githubConfigUrl: "https://github.com/nrao/"
+            githubConfigUrl: "https://github.com/kdion-nrao/gitops-envs-test/"
             githubConfigSecret: "arc-github-secret"
             
             runnerGroup: "aws-arc"
