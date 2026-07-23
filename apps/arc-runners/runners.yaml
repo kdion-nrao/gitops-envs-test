@@ -18,11 +18,11 @@ spec:
       source:
         repoURL: 'https://github.com/actions/actions-runner-controller'
         path: charts/gha-runner-scale-set
-        targetRevision: 74cfc3855ead2760f0b11d49feacf8d88bcb8ae0
+        targetRevision: gha-runner-scale-set-0.14.2
         helm:
           values: |
             githubConfigUrl: "https://github.com/kdion-nrao/gitops-envs-test/"
-            githubConfigSecret: "arc-github-secret"
+            githubConfigSecret: arc-github-secret
             
             runnerGroup: "aws-arc"
             runnerScaleSetName: "aws-arc-runner-{{environment}}"

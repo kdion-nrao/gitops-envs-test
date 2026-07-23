@@ -83,18 +83,12 @@ do
     key="$key" yq -i '.creation_rules[].age += strenv(key)' .sops.yaml
 done
 
-echo "=== Encrypting secrets"
-readarray -d '' secrets_files < <(find . -name '*secret*.yaml' ! -name '*.enc.yaml' -print0)
-for plain_file in "${secrets_files[@]}"
+## Re-encrypt secret files
+echo "=== Updating keys "
+shopt -s globstar nullglob
+for file in ./**/*secret*.enc.yaml
 do
-    enc_file="${plain_file%.yaml}.enc.yaml"
-    if [ -f "$enc_file" ]
-    then
-        sops updatekeys -y "$enc_file"
-    else
-        echo "Encrypting $plain_file"
-        sops -e "$plain_file" > "$enc_file"
-    fi
+    sops updatekeys -y "$file"
 done
 
 echo "=== Done!"

@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/actions/actions-runner-controller
     path: charts/gha-runner-scale-set-controller
-    targetRevision: 74cfc3855ead2760f0b11d49feacf8d88bcb8ae0
+    targetRevision: gha-runner-scale-set-0.14.2
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: arc-systems
