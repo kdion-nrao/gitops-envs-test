@@ -5,6 +5,8 @@ on:
 jobs:
   Use-ARC:
     runs-on: aws-arc-runner-local
+    container:
+      image: ubuntu:latest
     steps:
       - env:
           GH_REPO: ${{ github.repository }}
