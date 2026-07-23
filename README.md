@@ -1,5 +1,26 @@
 # GitOps environments testing
 
+## Apps
+
+```mermaid
+architecture-beta
+    group dummy["AppProject: releng-dummyapp-demo"]
+
+        group dummy_env(internet)["AppSet: dummy-app-deployments"] in dummy
+            service dev(server)["dummy-app-dev"] in dummy_env
+            service qa(server)["dummy-app-qa"] in dummy_env
+
+        group dummy_pr(internet)["AppSet: dummy-app-pr-previews"] in dummy
+            service pr_n(cloud)["dummyapp-pr-#"] in dummy_pr
+            service pr_x(cloud)["dummyapp-pr-#"] in dummy_pr
+
+    service ksops(server)["ksops-secrets"]
+
+    align row ksops dev qa
+    align row pr_n pr_x
+    align column dev pr_n
+```
+
 ## Directory structure
 
 This repo uses a variation on the 'environment-per-folder' approach to organizing Helm values for deployments via ArgoCD.
@@ -66,7 +87,3 @@ spec:
 ## Secrets
 
 See [secrets.md](secrets.md)
-
-```mermaid
-info
-```
