@@ -8,8 +8,8 @@ spec:
     - list:
         elements:
           - environment: local
-            minRunners: "1"
-            maxRunners: "5"
+            minRunners: "0"
+            maxRunners: "3"
   template:
     metadata:
       name: 'arc-runner-set-{{environment}}'
