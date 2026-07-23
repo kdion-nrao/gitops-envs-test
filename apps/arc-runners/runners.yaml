@@ -1,0 +1,47 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: arc-runner-environments
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - environment: local
+            minRunners: "1"
+            maxRunners: "5"
+  template:
+    metadata:
+      name: 'arc-runner-set-{{environment}}'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/actions/actions-runner-controller'
+        path: charts/gha-runner-scale-set
+        targetRevision: 74cfc3855ead2760f0b11d49feacf8d88bcb8ae0
+        helm:
+          values: |
+            githubConfigUrl: "https://github.com/nrao/"
+            githubConfigSecret: "arc-github-secret"
+            
+            runnerGroup: "aws-arc"
+            runnerScaleSetName: "aws-arc-runner-{{environment}}"
+            
+            minRunners: {{minRunners}}
+            maxRunners: {{maxRunners}}
+
+            controllerServiceAccount:
+              name: "arc-controller-gha-rs-controller"
+              namespace: "arc-systems"
+
+            containerMode:
+              type: "kubernetes-novolume"
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: 'arc-runners-{{environment}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
