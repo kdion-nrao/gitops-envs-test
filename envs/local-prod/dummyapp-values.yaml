@@ -1,8 +1,0 @@
-color: violet
-
-ingress:
-  hosts:
-    - host: 'dummy.localhost'
-      paths:
-        - path: /
-          pathType: Prefix

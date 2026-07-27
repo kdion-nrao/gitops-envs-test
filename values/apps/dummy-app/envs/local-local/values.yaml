@@ -1,0 +1,18 @@
+color: yellow
+
+contextPath: /local
+
+image:
+  pullPolicy: Always
+  repository: "registry.localhost:5432/nrao/releng/dummy_app"
+  tag: edge
+
+ingress:
+  tls:
+    - hosts:
+        - dummy.localhost
+  hosts:
+    - host: dummy.localhost
+      paths:
+        - path: /local
+          pathType: Prefix

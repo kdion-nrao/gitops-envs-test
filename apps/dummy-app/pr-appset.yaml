@@ -31,10 +31,10 @@ spec:
         helm:
           ignoreMissingValueFiles: true
           valueFiles:
-            - $values/common/dummyapp-values.yaml
-            - $values/common/dummyapp-secrets.enc.yaml
-            - $values/variants/local/dummyapp-values.yaml
-            - $values/envs/local-dev/dummyapp-values.yaml
+            - $values/apps/dummy-app/common/values.yaml
+            - $values/apps/dummy-app/common/secrets.enc.yaml
+            - $values/apps/dummy-app/variants/local/values.yaml
+            - $values/apps/dummy-app/envs/local-{{.env}}/values.yaml
             - ../tests/preview/pr-{{.number}}-values.yaml
           values: |
             contextPath: '/pr-{{.number}}'
@@ -49,6 +49,7 @@ spec:
                       pathType: Prefix
       - repoURL: https://github.com/kdion-nrao/gitops-envs-test.git
         targetRevision: HEAD
+        path: values
         ref: values
       destination:
         server: "https://kubernetes.default.svc"

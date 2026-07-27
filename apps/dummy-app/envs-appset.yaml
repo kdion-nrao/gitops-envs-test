@@ -9,6 +9,8 @@ spec:
   generators:
     - list:
         elements:
+          - env: local
+            chartRev: HEAD
           - env: dev
             chartRev: HEAD
           - env: qa
@@ -29,12 +31,13 @@ spec:
           helm:
             ignoreMissingValueFiles: true
             valueFiles:
-              - $values/common/dummyapp-values.yaml
-              - $values/common/dummyapp-secrets.enc.yaml
-              - $values/variants/local/dummyapp-values.yaml
-              - $values/envs/local-{{.env}}/dummyapp-values.yaml
+              - $values/apps/dummy-app/common/values.yaml
+              - $values/apps/dummy-app/common/secrets.enc.yaml
+              - $values/apps/dummy-app/variants/local/values.yaml
+              - $values/apps/dummy-app/envs/local-{{.env}}/values.yaml
         - repoURL: https://github.com/kdion-nrao/gitops-envs-test.git
           targetRevision: HEAD
+          path: values
           ref: values
       destination:
         server: 'https://kubernetes.default.svc'
