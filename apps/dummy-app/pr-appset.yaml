@@ -34,7 +34,7 @@ spec:
             - $values/values/apps/dummy-app/common/values.yaml
             - $values/values/apps/dummy-app/common/secrets.enc.yaml
             - $values/values/apps/dummy-app/variants/local/values.yaml
-            - $values/values/apps/dummy-app/envs/local-{{.env}}/values.yaml
+            - $values/values/apps/dummy-app/envs/local-dev/values.yaml
             - ../tests/preview/pr-{{.number}}-values.yaml
           values: |
             contextPath: '/pr-{{.number}}'
