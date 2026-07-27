@@ -58,6 +58,6 @@ spec:
           enabled: false
         managedNamespaceMetadata:
           labels:
-            argocd.argoproj.io/instance: dummyapp-preview-pr-{{.number}}
+            app.kubernetes.io/instance: dummyapp-preview-pr-{{.number}}
         syncOptions:
           - CreateNamespace=true
