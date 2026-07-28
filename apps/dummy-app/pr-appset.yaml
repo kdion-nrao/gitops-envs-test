@@ -58,6 +58,6 @@ spec:
           enabled: false
         managedNamespaceMetadata:
           labels:
-            app.kubernetes.io/instance: dummyapp-preview-pr-{{.number}}
+            app.kubernetes.io/instance: dummyapp-pr-{{.number}}
         syncOptions:
           - CreateNamespace=true
