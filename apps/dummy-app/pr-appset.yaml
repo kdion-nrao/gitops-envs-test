@@ -59,5 +59,7 @@ spec:
         managedNamespaceMetadata:
           labels:
             app.kubernetes.io/instance: dummyapp-pr-{{.number}}
+          annotations:
+             argocd.argoproj.io/tracking-id: dummyapp-pr-{{.number}}:/Namespace:dummyapp-preview-pr-{{.number}}
         syncOptions:
           - CreateNamespace=true
