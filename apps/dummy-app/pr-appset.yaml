@@ -34,15 +34,17 @@ spec:
             - $values/values/apps/dummy-app/common/values.yaml
             - $values/values/apps/dummy-app/common/secrets.enc.yaml
             - $values/values/apps/dummy-app/variants/local/values.yaml
-            - $values/values/apps/dummy-app/envs/local-local/values.yaml
             - ../tests/preview/pr-{{.number}}-values.yaml
           values: |
             contextPath: '/pr-{{.number}}'
             image:
               pullPolicy: Always
-              repository: ghcr.io/nrao/releng/dummy_app
+              repository: "ghcr.io/nrao/releng/dummy_app"
               tag: 'pr-{{.number}}'
             ingress:
+              tls:
+                - hosts:
+                    - 'dummy-preview.localhost'
               hosts:
                 - host: 'dummy-preview.localhost'
                   paths:
