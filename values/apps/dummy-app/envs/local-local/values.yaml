@@ -3,7 +3,6 @@ color: yellow
 contextPath: /local
 
 image:
-  pullPolicy: Always
   repository: "registry.localhost:5432/nrao/releng/dummy_app"
   tag: edge
 
