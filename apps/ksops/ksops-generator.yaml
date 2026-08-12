@@ -9,4 +9,3 @@ metadata:
         path: ksops
 files:
   - github-token-secret.enc.yaml
-  - arc-github-token-secret.enc.yaml
