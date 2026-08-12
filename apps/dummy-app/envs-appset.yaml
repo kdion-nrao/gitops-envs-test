@@ -11,10 +11,10 @@ spec:
         elements:
           - env: local
             chartRev: HEAD
-          - env: dev
-            chartRev: HEAD
-          - env: qa
-            chartRev: "helmchart-v0.4.0"
+          # - env: dev
+          #   chartRev: HEAD
+          # - env: qa
+          #   chartRev: "helmchart-v0.4.0"
   template:
     metadata:
       name: 'dummy-app-{{.env}}'
