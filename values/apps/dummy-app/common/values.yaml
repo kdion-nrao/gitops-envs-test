@@ -10,7 +10,7 @@ image:
   tag: "1.1.5"
 
 imageCredentials:
-  registry: ghcr.io
+  registry: nrao.repo.sonatype.app
 
 podLabels: {}
 

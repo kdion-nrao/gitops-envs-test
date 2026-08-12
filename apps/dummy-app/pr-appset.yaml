@@ -38,8 +38,6 @@ spec:
           values: |
             contextPath: '/pr-{{.number}}'
             image:
-              pullPolicy: Always
-              repository: "ghcr.io/nrao/releng/dummy_app"
               tag: 'pr-{{.number}}'
             ingress:
               tls:
