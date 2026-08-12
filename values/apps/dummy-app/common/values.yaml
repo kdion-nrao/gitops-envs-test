@@ -7,6 +7,7 @@ replicaCount: 1
 
 image:
   pullPolicy: IfNotPresent
+  repository: "nrao.repo.sonatype.app/cicdpilot/releng/dummy_app"
   tag: "1.1.5"
 
 imageCredentials:
