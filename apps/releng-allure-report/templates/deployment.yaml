@@ -68,7 +68,7 @@ spec:
             - name: S3_SECRET_ACCESS_KEY
               value: {{ .secretKey }}
             - name: S3_FORCE_PATH_STYLE
-              value: {{ .forcePathStyle }}
+              value: {{ quote .forcePathStyle }}
             {{- end }}
           ports:
             - name: http
