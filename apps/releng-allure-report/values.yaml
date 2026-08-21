@@ -18,17 +18,17 @@ service:
   type: ClusterIP
   port: 80
 
-# livenessProbe:
-#   httpGet:
-#     path: /api/ping
-#     port: http
-#   initialDelaySeconds: 10
+livenessProbe:
+  httpGet:
+    path: /api/ping
+    port: http
+  initialDelaySeconds: 10
 
-# readinessProbe:
-#   httpGet:
-#     path: /api/ping
-#     port: http
-#   initialDelaySeconds: 10
+readinessProbe:
+  httpGet:
+    path: /api/ping
+    port: http
+  initialDelaySeconds: 10
 
 ingress:
   enabled: false

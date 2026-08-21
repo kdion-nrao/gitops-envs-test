@@ -2,10 +2,10 @@ ingress:
   enabled: true
   tls: []
 
-# resources: 
-#   limits:
-#     cpu: 100m
-#     memory: 128Mi
-#   requests:
-#     cpu: 100m
-#     memory: 128Mi
+resources: 
+  limits:
+    cpu: 100m
+    memory: 300Mi
+  requests:
+    cpu: 100m
+    memory: 300Mi
