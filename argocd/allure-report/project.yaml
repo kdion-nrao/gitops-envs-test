@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: allure-report
+  namespace: argocd
+spec:
+  description: "Allure Report Storage service"
+
+  sourceRepos:
+    - 'https://github.com/kdion-nrao/gitops-envs-test/'
+    - 'https://github.com/kdion-nrao/gitops-envs-test.git'
+
+  destinations:
+    - server: 'https://kubernetes.default.svc'
+      namespace: 'allure-report'
+
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace
+      name: allure-report
+
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'

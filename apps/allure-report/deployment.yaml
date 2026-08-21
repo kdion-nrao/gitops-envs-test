@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: allure-report
+  name: allure-report
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: allure-report
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: allure-report
+    spec:
+      containers:
+        - name: allure-report
+          image: allure/allure-report-storage:v1.0.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ACCESS_TOKEN
+              value: changeme-test
+            - name: SECRET
+              value: changeme-test-secret
+            - name: MAIN_BRANCH
+              value: main
+            - name: DATA_DIR
+              value: /data
+            - name: DATABASE_PATH
+              value: /data/reports.sqlite
+            - name: HOST
+              value: 0.0.0.0
+            - name: PORT
+              value: 3000
+          ports:
+            - containerPort: 3000
+              name: http
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /api/ping
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /api/ping
+              port: http

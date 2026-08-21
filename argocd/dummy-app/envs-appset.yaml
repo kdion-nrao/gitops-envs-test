@@ -25,7 +25,7 @@ spec:
     spec:
       project: releng-dummyapp-demo
       sources:
-        - repoURL: 'https://github.com/nrao/dummy-app/'
+        - repoURL: 'https://github.com/nrao/releng-dummy-app/'
           path: helm-dummyapp
           targetRevision: '{{.chartRev}}'
           helm:

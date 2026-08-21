@@ -26,10 +26,13 @@ architecture-beta
 This repo uses a variation on the 'environment-per-folder' approach to organizing Helm values for deployments via ArgoCD.
 
 At the top level, there are several directories:
-- `apps`: Contains the ArgoCD definitions that are meant to be loaded by an 'app-of-apps'
-- `common`: configuration/values that apply to *all* environments
-- `envs`: contains directories for each specific environment. Those respective folders contain the configuraiton specific to that single environment.
-- `variants`: contains directories for common characteristics between environments. If there are common settings for a well-defined subset of environments, those could be pulled into a variant.
+- `argocd`: Contains the ArgoCD definitions that are meant to be loaded by an 'app-of-apps'
+- `apps`: Contains specific app definitions (Helm/Kustomize) that don't have their own definitions elsewhere. Eash would be referenced by an ArgoCD app.
+- `values`: Top level Helm values directory, containing:
+  - `apps/{app-name}`: Helm values per app:
+    - `common`: configuration/values that apply to *all* environments
+    - `envs`: contains directories for each specific environment. Those respective folders contain the configuraiton specific to that single environment.
+    - `variants`: contains directories for common characteristics between environments. If there are common settings for a well-defined subset of environments, those could be pulled into a variant.
 
 ## Example 'App of Apps' root app
 
@@ -46,11 +49,10 @@ spec:
   source:
     repoURL: https://github.com/kdion-nrao/gitops-envs-test.git
     targetRevision: HEAD
-    path: apps
+    path: argocd
     directory:
       recurse: true
       include: '*.yaml'
-      exclude: 'ksops/*'
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd
@@ -70,7 +72,7 @@ In an ArgoCD Application spec, you would specify the Helm chart repo as the prim
 ```yaml
 spec:
   sources:
-    - repoURL: 'https://github.com/nrao/dummy-app/'
+    - repoURL: 'https://github.com/nrao/releng-dummy-app/'
       path: helm-dummyapp
       helm:
         ignoreMissingValueFiles: true

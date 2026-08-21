@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: allure-report
+  namespace: argocd
+  labels:
+    team: releng
+    app: allure-report
+spec:
+  project: allure-report
+  source:
+    repoURL: https://github.com/kdion-nrao/gitops-envs-test.git
+    targetRevision: HEAD
+    path: apps/allure-report
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: allure-report
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

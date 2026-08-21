@@ -38,6 +38,7 @@ spec:
           values: |
             contextPath: '/pr-{{.number}}'
             image:
+              pullPolicy: Always
               tag: 'pr-{{.number}}'
             ingress:
               tls:
