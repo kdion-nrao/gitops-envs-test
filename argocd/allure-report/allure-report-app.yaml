@@ -12,7 +12,7 @@ spec:
     repoURL: https://github.com/kdion-nrao/gitops-envs-test.git
     targetRevision: HEAD
     # path: apps/allure-report
-    path: argo/releng-allure-report
+    path: apps/releng-allure-report
     helm:
       ignoreMissingValueFiles: true
       valueFiles:
