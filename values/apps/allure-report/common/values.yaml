@@ -4,7 +4,7 @@ storage:
   local: null
   remote:
     backend: s3
-    bucket: allure-report-storage
+    bucket: allure-reports
     region: auto
     forcePathStyle: false
 
