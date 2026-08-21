@@ -30,9 +30,9 @@ spec:
             - name: DATABASE_PATH
               value: /data/reports.sqlite
             - name: HOST
-              value: 0.0.0.0
+              value: "0.0.0.0"
             - name: PORT
-              value: 3000
+              value: "3000"
           ports:
             - containerPort: 3000
               name: http
