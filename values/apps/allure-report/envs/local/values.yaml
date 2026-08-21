@@ -1,0 +1,9 @@
+ingress:
+  tls:
+    - hosts:
+        - allure.localhost
+  hosts:
+    - host: allure.localhost
+      paths:
+        - path: /
+          pathType: Prefix

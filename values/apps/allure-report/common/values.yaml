@@ -1,0 +1,5 @@
+replicaCount: 1
+
+image:
+  repository: allure/allure-report-storage
+  tag: v1.0.0

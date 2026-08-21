@@ -11,7 +11,15 @@ spec:
   source:
     repoURL: https://github.com/kdion-nrao/gitops-envs-test.git
     targetRevision: HEAD
-    path: apps/allure-report
+    # path: apps/allure-report
+    path: argo/releng-allure-report
+    helm:
+      ignoreMissingValueFiles: true
+      valueFiles:
+        - $values/values/apps/allure-report/common/values.yaml
+        - $values/values/apps/allure-report/common/secrets.enc.yaml
+        - $values/values/apps/allure-report/variants/local/values.yaml
+        - $values/values/apps/allure-report/envs/local/values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: allure-report
