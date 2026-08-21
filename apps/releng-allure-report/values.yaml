@@ -2,6 +2,19 @@
 accessToken: change-me
 secret: change-me-secret
 
+storage:
+  local:
+    dir: /data
+    databasePath: /data/reports.sqlite
+  remote: {}
+    # backend: s3
+    # bucket: allure-report-storage
+    # region: auto
+    # endpoint: https://<cloudflare-account-id>.r2.cloudflarestorage.com
+    # accessKey: access-key
+    # secretKey: secret-key
+    # forcePathStyle: false
+
 ## sets the main branch
 mainBranch: main
 

@@ -1,5 +1,13 @@
 replicaCount: 1
 
+storage:
+  local: null
+  remote:
+    backend: s3
+    bucket: allure-report-storage
+    region: auto
+    forcePathStyle: false
+
 image:
   repository: allure/allure-report-storage
   tag: v1.0.0
