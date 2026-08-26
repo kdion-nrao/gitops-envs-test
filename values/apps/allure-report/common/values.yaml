@@ -1,7 +1,6 @@
 replicaCount: 1
 
 storage:
-  local: null
   remote:
     backend: s3
     bucket: allure-reports
@@ -10,4 +9,4 @@ storage:
 
 image:
   repository: allure/allure-report-storage
-  tag: v1.0.0
+  tag: v1.0.1
