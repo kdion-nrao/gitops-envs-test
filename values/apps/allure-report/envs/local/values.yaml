@@ -1,3 +1,5 @@
+overrideUrl: https://allure.localhost
+
 ingress:
   tls:
     - hosts:

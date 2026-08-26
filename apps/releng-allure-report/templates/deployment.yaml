@@ -48,6 +48,10 @@ spec:
               value: "3000"
             - name: HOST
               value: "0.0.0.0"
+            {{- with .Values.overrideUrl }}
+            - name: OVERRIDE_URL
+              value: {{ . }}
+            {{- end }}
             {{- with .Values.storage.local }}
             - name: DATA_DIR
               value: {{ .dir }}

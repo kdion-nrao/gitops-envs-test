@@ -2,6 +2,9 @@
 accessToken: change-me
 secret: change-me-secret
 
+## Override the URL used for generated tokens
+# overrideUrl: https://allure.yoursite.com
+
 storage:
   local:
     dir: /data
