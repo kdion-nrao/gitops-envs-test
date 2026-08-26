@@ -10,4 +10,5 @@ ingress:
 
 image:
   repository: "registry.localhost:5432/allure-test"
+  pullPolicy: Always
   tag: latest
