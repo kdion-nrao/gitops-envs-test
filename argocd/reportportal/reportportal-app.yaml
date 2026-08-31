@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: reportportal
+  namespace: argocd
+  labels:
+    team: releng
+    app: reportportal
+spec:
+  sources:
+  - repoURL: https://k8s.reportportal.io
+    targetRevision: HEAD
+    helm:
+      ignoreMissingValueFiles: true
+      valueFiles:
+        - $values/values/apps/reportportal/common/values.yaml
+        - $values/values/apps/reportportal/common/secrets.enc.yaml
+  - repoURL: https://github.com/kdion-nrao/gitops-envs-test.git
+    targetRevision: HEAD
+    ref: values
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: reportportal
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

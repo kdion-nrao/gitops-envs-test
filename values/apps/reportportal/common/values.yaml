@@ -1,0 +1,8 @@
+global:
+  argocd.enabled: true
+
+ingress:
+  enable: true
+  hosts:
+    - reportportal.localhost
+  class: traefik
