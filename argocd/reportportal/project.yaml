@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: reportportal
+  namespace: argocd
+spec:
+  description: "ReportPortal"
+
+  sourceRepos:
+    - 'https://k8s.reportportal.io'
+    - 'https://github.com/kdion-nrao/gitops-envs-test/'
+    - 'https://github.com/kdion-nrao/gitops-envs-test.git'
+
+  destinations:
+    - server: 'https://kubernetes.default.svc'
+      namespace: 'reportportal'
+
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace
+      name: reportportal
+
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
