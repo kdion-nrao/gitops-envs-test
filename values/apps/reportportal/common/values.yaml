@@ -1,5 +1,4 @@
-global:
-  argocd.enabled: true
+# global.argocd.enabled: true
 
 ingress:
   enable: true
