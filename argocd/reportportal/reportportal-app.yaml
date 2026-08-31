@@ -10,7 +10,8 @@ spec:
   project: default
   sources:
   - repoURL: https://k8s.reportportal.io
-    targetRevision: HEAD
+    chart: reportportal/reportportal
+    # targetRevision: HEAD
     helm:
       ignoreMissingValueFiles: true
       valueFiles:
