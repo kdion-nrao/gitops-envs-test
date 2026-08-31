@@ -1,4 +1,6 @@
-# global.argocd.enabled: true
+global.argocd.enabled: true
+
+uat.superadminInitPasswd.password: FakePasswordForTesting
 
 ingress:
   enable: true
