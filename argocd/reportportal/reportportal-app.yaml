@@ -7,6 +7,7 @@ metadata:
     team: releng
     app: reportportal
 spec:
+  project: default
   sources:
   - repoURL: https://k8s.reportportal.io
     targetRevision: HEAD
