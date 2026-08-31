@@ -17,6 +17,9 @@ spec:
       valueFiles:
         - $values/values/apps/reportportal/common/values.yaml
         - $values/values/apps/reportportal/common/secrets.enc.yaml
+    parameters:
+    - name: "uat.superadminInitPasswd.password"
+      value: FakePasswordForTesting
   - repoURL: https://github.com/kdion-nrao/gitops-envs-test.git
     targetRevision: HEAD
     ref: values
