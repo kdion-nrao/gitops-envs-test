@@ -4,7 +4,7 @@ contextPath: /dev
 
 image:
   pullPolicy: Always
-  tag: edge
+  tag: 'sha-8d72d86'
 
 ingress:
   tls:
