@@ -7,16 +7,40 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-    - pullRequest:
-        github:
-          owner: nrao
-          repo: dummy-app
-          tokenRef:
-            secretName: github-token
-            key: token
-          labels:
-            - preview
-        requeueAfterSeconds: 60
+      ## We effectively want an AND merge - where only the staging cluster only
+      ## creates apps for the PRs tagged with 'preview'
+    - merge:
+        mergeKeys:
+          ## The two generators don't share any values by default, so we add
+          ## an arbitrary value to merge on.
+          - values.anchor
+        generators:
+          ## Start with the staging cluster, so this won't apply on prod
+          - clusters:
+              selector:
+                matchLabels:
+                  releng.nrao/cluster-role: 'staging'
+              values:
+                anchor: 'yes'
+          ## Merge in the pull request generator values
+          - pullRequest:
+              github:
+                owner: nrao
+                repo: dummy-app
+                tokenRef:
+                  secretName: github-token
+                  key: token
+                labels:
+                  - preview
+              requeueAfterSeconds: 60
+              values:
+                anchor: 'yes'
+      selector:
+        ## finally, check for the existence of {{ .number }}
+        ## in case there were no PRs tagged
+        matchExpressions:
+          - key: number
+            operator: Exists
   template:
     metadata:
       name: 'dummyapp-pr-{{.number}}'
@@ -34,7 +58,6 @@ spec:
             - $values/values/apps/dummy-app/common/values.yaml
             - $values/values/apps/dummy-app/common/secrets.enc.yaml
             - $values/values/apps/dummy-app/variants/local/values.yaml
-            - ../tests/preview/pr-{{.number}}-values.yaml
           values: |
             contextPath: '/pr-{{.number}}'
             image:
@@ -53,7 +76,7 @@ spec:
         targetRevision: HEAD
         ref: values
       destination:
-        server: "https://kubernetes.default.svc"
+        server: '{{ .server }}'
         namespace: dummyapp-preview-pr-{{.number}}
       syncPolicy:
         automated:

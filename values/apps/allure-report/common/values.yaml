@@ -8,5 +8,8 @@ storage:
     forcePathStyle: false
 
 image:
-  repository: allure/allure-report-storage
-  tag: v1.0.1
+  repository: "nrao.repo.sonatype.app/cicdpilot/allure/allure-report-storage"
+  tag: "v1.0.1-patched"
+
+imageCredentials:
+  registry: nrao.repo.sonatype.app

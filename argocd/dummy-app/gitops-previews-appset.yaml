@@ -1,0 +1,69 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: dummy-app-gitops-previews
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+    - pullRequest:
+        github:
+          owner: nrao
+          repo: releng-aws-gitops
+          tokenRef:
+            secretName: github-token
+            key: token
+          labels:
+            - preview
+            - dummy-app
+        requeueAfterSeconds: 60
+  template:
+    metadata:
+      name: 'releng-gitops-pr-{{.number}}-dummyapp'
+      annotations:
+        notifications.argoproj.io/subscribe.on-deployed.github: ""
+      labels:
+        team: releng
+        app: dummyapp
+        env: preview
+    spec:
+      project: releng-dummyapp-demo
+      sources:
+        - repoURL: 'https://github.com/nrao/releng-dummy-app/'
+          path: helm-dummyapp
+          targetRevision: HEAD
+          helm:
+            ignoreMissingValueFiles: true
+            valueFiles:
+            - $values/values/apps/dummy-app/common/values.yaml
+            - $values/values/apps/dummy-app/common/secrets.enc.yaml
+            - $values/values/apps/dummy-app/variants/local/values.yaml
+          values: |
+              contextPath: '/gitops-pr-{{.number}}'
+              ingress:
+              tls:
+                - hosts:
+                    - 'dummy-preview.localhost'
+              hosts:
+                - host: 'dummy-preview.localhost'
+                  paths:
+                    - path: '/gitops-pr-{{.number}}'
+                      pathType: Prefix
+        - repoURL: 'https://github.com/nrao/releng-aws-gitops'
+          targetRevision: '{{.head_sha}}'
+          ref: values
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: gitops-preview-pr-{{.number}}-dummyapp
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        managedNamespaceMetadata:
+          labels:
+            app.kubernetes.io/instance: gitops-preview-pr-{{.number}}-dummyapp
+          annotations:
+             argocd.argoproj.io/tracking-id: gitops-preview-pr-{{.number}}-dummyapp:/Namespace:gitops-preview-pr-{{.number}}-dummyapp/gitops-preview-pr-{{.number}}-dummyapp
+        syncOptions:
+          - CreateNamespace=true
