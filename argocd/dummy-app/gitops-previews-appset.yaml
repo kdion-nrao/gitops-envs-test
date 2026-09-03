@@ -55,15 +55,15 @@ spec:
           ref: values
       destination:
         server: 'https://kubernetes.default.svc'
-        namespace: gitops-preview-pr-{{.number}}-dummyapp
+        namespace: dummyapp-gitops-preview-pr-{{.number}}
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
         managedNamespaceMetadata:
           labels:
-            app.kubernetes.io/instance: gitops-preview-pr-{{.number}}-dummyapp
+            app.kubernetes.io/instance: dummyapp-gitops-preview-pr-{{.number}}
           annotations:
-             argocd.argoproj.io/tracking-id: gitops-preview-pr-{{.number}}-dummyapp:/Namespace:gitops-preview-pr-{{.number}}-dummyapp/gitops-preview-pr-{{.number}}-dummyapp
+             argocd.argoproj.io/tracking-id: dummyapp-gitops-preview-pr-{{.number}}:/Namespace:dummyapp-gitops-preview-pr-{{.number}}/dummyapp-gitops-preview-pr-{{.number}}
         syncOptions:
           - CreateNamespace=true
