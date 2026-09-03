@@ -50,7 +50,7 @@ spec:
                   paths:
                     - path: '/gitops-pr-{{.number}}'
                       pathType: Prefix
-        - repoURL: 'https://github.com/nrao/releng-aws-gitops'
+        - repoURL: https://github.com/kdion-nrao/gitops-envs-test.git
           targetRevision: '{{.head_sha}}'
           ref: values
       destination:
