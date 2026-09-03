@@ -9,8 +9,3 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
-
-image:
-  repository: "registry.localhost:5432/allure-test"
-  pullPolicy: Always
-  tag: latest
