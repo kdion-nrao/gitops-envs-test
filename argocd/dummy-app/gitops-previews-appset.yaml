@@ -41,16 +41,16 @@ spec:
               - $values/values/apps/dummy-app/variants/local/values.yaml
               - $values/values/apps/dummy-app/envs/local-dev/values.yaml
             values: |
-                contextPath: '/gitops-pr-{{.number}}'
-                ingress:
-                tls:
-                  - hosts:
-                      - 'dummy-preview.localhost'
-                hosts:
-                  - host: 'dummy-preview.localhost'
-                    paths:
-                      - path: '/gitops-pr-{{.number}}'
-                        pathType: Prefix
+              contextPath: '/gitops-pr-{{.number}}'
+              ingress:
+              tls:
+                - hosts:
+                    - 'dummy-preview.localhost'
+              hosts:
+                - host: 'dummy-preview.localhost'
+                  paths:
+                    - path: '/gitops-pr-{{.number}}'
+                      pathType: Prefix
         - repoURL: https://github.com/kdion-nrao/gitops-envs-test.git
           targetRevision: '{{.head_sha}}'
           ref: values
