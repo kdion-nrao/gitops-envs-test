@@ -9,8 +9,8 @@ spec:
   generators:
     - pullRequest:
         github:
-          owner: nrao
-          repo: releng-aws-gitops
+          owner: kdion-nrao
+          repo: gitops-envs-test
           tokenRef:
             secretName: github-token
             key: token
