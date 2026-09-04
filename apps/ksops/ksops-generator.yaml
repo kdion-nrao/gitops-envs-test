@@ -9,4 +9,4 @@ metadata:
         path: ksops
 files:
   - fake-cluster-secret-store.enc.yaml
-  - github-token-secret.enc.yaml
+  # - github-token-secret.enc.yaml
