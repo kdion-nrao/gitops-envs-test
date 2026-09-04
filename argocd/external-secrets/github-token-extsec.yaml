@@ -9,7 +9,7 @@ spec:
     name: fake
     kind: ClusterSecretStore
   target:
-    name: github-token
+    name: github-token-ext
     template:
       engineVersion: v2
       metadata:
