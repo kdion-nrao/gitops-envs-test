@@ -37,7 +37,6 @@ spec:
             ignoreMissingValueFiles: true
             valueFiles:
               - $values/values/apps/dummy-app/common/values.yaml
-              - $values/values/apps/dummy-app/common/secrets.enc.yaml
               - $values/values/apps/dummy-app/variants/local/values.yaml
               - $values/values/apps/dummy-app/envs/local-dev/values.yaml
             values: |

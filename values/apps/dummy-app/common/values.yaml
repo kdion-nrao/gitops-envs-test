@@ -10,8 +10,8 @@ image:
   repository: "nrao.repo.sonatype.app/cicdpilot/releng/dummy_app"
   tag: "1.1.5"
 
-imageCredentials:
-  registry: nrao.repo.sonatype.app
+imagePullSecrets:
+  - nexus-cloud-credentials
 
 podLabels: {}
 

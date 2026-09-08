@@ -32,7 +32,6 @@ spec:
             ignoreMissingValueFiles: true
             valueFiles:
               - $values/values/apps/dummy-app/common/values.yaml
-              - $values/values/apps/dummy-app/common/secrets.enc.yaml
               - $values/values/apps/dummy-app/variants/local/values.yaml
               - $values/values/apps/dummy-app/envs/local-{{.env}}/values.yaml
         - repoURL: https://github.com/kdion-nrao/gitops-envs-test.git
