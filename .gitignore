@@ -1,3 +1,4 @@
+scripts/sops
 
 ## ignore any unencrypted secrets
 **/*secret*.yaml

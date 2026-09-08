@@ -64,6 +64,7 @@ spec:
         managedNamespaceMetadata:
           labels:
             app.kubernetes.io/instance: releng-gitops-pr-{{.number}}-dummyapp
+            shared-credentials: "true"
           annotations:
              argocd.argoproj.io/tracking-id: releng-gitops-pr-{{.number}}-dummyapp:/Namespace:dummyapp-gitops-preview-pr-{{.number}}/dummyapp-gitops-preview-pr-{{.number}}
         syncOptions:
