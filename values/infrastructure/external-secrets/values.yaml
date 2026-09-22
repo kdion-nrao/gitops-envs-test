@@ -15,5 +15,5 @@ genericTargets:
   #     verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
   resources:
     - apiGroup: "argoproj.io"
-      resources: ["applications"]
+      resources: ["applications", "applicationsets"]
       verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
