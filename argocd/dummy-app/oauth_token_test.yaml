@@ -2,6 +2,8 @@ apiVersion: external-secrets.io/v1
 kind: ExternalSecret
 metadata:
   name: oauth-token-test
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   refreshInterval: 15m0s
   secretStoreRef:
