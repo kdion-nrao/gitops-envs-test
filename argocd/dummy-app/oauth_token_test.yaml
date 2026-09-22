@@ -2,25 +2,24 @@ apiVersion: external-secrets.io/v1
 kind: ExternalSecret
 metadata:
   name: oauth-token-test
-  namespace: dummyapp-local
 spec:
   refreshInterval: 15m0s
   secretStoreRef:
     name: fake
     kind: ClusterSecretStore
   target:
-    name: dummy-app-local
+    name: dummy-app-deployments
     manifest:
       apiVersion: argoproj.io/v1alpha1
-      kind: Application
+      kind: ApplicationSet
     template:
       engineVersion: v2
       templateFrom:
-      - literal: |
-          name: "hub.config.GitHubOAuthenticator.client_secret"
-          value: "{{ .token }}"
-        target: spec.sources[0].helm.parameters[0]
+        - literal: |
+            name: "hub.config.GitHubOAuthenticator.client_secret"
+            value: "{{ .token }}"
+          target: spec.template.spec.sources[0].helm.parameters[0]
   data:
-  - secretKey: token
-    remoteRef:
-      key: /oauth/github/libra-hub/client-secret
+    - secretKey: token
+      remoteRef:
+        key: /oauth/github/libra-hub/client-secret
