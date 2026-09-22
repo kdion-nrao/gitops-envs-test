@@ -7,10 +7,16 @@ metadata:
     argocd.argoproj.io/sync-wave: "-2"
 spec:
   project: default
-  source:
-    repoURL: https://charts.external-secrets.io
-    chart: external-secrets
-    targetRevision: 2.10.0
+  sources:
+    - repoURL: https://charts.external-secrets.io
+      chart: external-secrets
+      targetRevision: 2.11.0
+      helm:
+        valueFiles:
+          - $values/values/infrastructure/external-secrets/values.yaml
+    - repoURL: https://github.com/kdion-nrao/gitops-envs-test.git
+      targetRevision: HEAD
+      ref: values
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: external-secrets
