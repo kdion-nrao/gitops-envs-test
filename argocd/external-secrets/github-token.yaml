@@ -4,9 +4,9 @@ metadata:
   name: github-token
   namespace: argocd
 spec:
-  refreshInterval: 1h0m0s
+  refreshInterval: 12h
   secretStoreRef:
-    name: fake
+    name: keeper-secretstore
     kind: ClusterSecretStore
   target:
     name: github-token
@@ -20,4 +20,4 @@ spec:
   data:
   - secretKey: token
     remoteRef:
-      key: /repos/github-token
+      key: "WSNUV6a-3VyqUswWWotIFQ"
