@@ -21,3 +21,4 @@ spec:
   - secretKey: token
     remoteRef:
       key: "WSNUV6a-3VyqUswWWotIFQ"
+      property: note
