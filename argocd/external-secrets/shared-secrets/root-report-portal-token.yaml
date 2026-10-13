@@ -1,0 +1,21 @@
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: root-report-portal-token
+  namespace: argocd
+spec:
+  refreshInterval: 12h
+  secretStoreRef:
+    name: keeper-secretstore
+    kind: ClusterSecretStore
+  target:
+    name: root-report-portal-token
+    template:
+      engineVersion: v2
+      data:
+        token: '{{ .token }}'
+  data:
+  - secretKey: token
+    remoteRef:
+      key: "Yj75zHQwZLUFfEajwiXj-Q"
+      property: note

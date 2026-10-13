@@ -1,0 +1,19 @@
+apiVersion: external-secrets.io/v1
+kind: ClusterExternalSecret
+metadata:
+  name: report-portal-token
+spec:
+  externalSecretName: report-portal-token
+  namespaceSelectors:
+  - matchLabels:
+      shared-credentials: "true"
+  externalSecretSpec:
+    refreshInterval: 12h
+    secretStoreRef:
+      name: shared-credentials-store
+      kind: ClusterSecretStore
+    target:
+      name: report-portal-token
+    dataFrom:
+    - extract:
+        key: root-report-portal-token
