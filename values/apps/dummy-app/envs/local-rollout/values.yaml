@@ -2,9 +2,13 @@ color: blue
 
 contextPath: /rollout
 
+replicaCount: 5
+rollout:
+  enabled: true
+
 image:
   pullPolicy: Always
-  tag: 'sha-8d72d86'
+  tag: 'pr-42'
 
 ingress:
   tls:
