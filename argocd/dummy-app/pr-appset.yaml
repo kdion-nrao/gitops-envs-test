@@ -57,6 +57,7 @@ spec:
           valueFiles:
             - $values/values/apps/dummy-app/common/values.yaml
             - $values/values/apps/dummy-app/variants/local/values.yaml
+            - ../tests/preview/pr-{{.number}}-values.yaml
           values: |
             contextPath: '/pr-{{.number}}'
             image:
