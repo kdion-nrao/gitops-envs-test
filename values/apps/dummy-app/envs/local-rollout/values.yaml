@@ -1,10 +1,10 @@
-color: yellow
+color: blue
 
-contextPath: /local
+contextPath: /rollout
 
 image:
-  repository: "registry.localhost:5432/nrao/releng/dummy_app"
-  tag: edge
+  pullPolicy: Always
+  tag: 'sha-8d72d86'
 
 ingress:
   tls:
@@ -13,5 +13,5 @@ ingress:
   hosts:
     - host: dummy.localhost
       paths:
-        - path: /local
+        - path: /rollout
           pathType: Prefix

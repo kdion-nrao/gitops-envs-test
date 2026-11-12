@@ -9,12 +9,10 @@ spec:
   generators:
     - list:
         elements:
-          - env: local
+          - env: rollout
             chartRev: HEAD
           - env: dev
             chartRev: HEAD
-          # - env: qa
-          #   chartRev: "helmchart-v0.4.0"
   template:
     metadata:
       name: 'dummy-app-{{.env}}'
